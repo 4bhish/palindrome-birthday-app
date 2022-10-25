@@ -1,0 +1,14 @@
+*{
+
+}
+
+body
+{
+    width: 600px;
+    height: 200px;
+    position: relative;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}

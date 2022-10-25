@@ -128,7 +128,7 @@ var outputDiv = document.querySelector("#output");
 
 
 function clickEventHandler()
-{  var newDateIp = dateInput.value;
+{  var newDateIp = dobInput.value;
 
     if (newDateIp !== '') {
       var dateObject = newDateIp.split('-');
