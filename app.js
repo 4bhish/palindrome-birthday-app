@@ -27,8 +27,6 @@ function reversedStr(str) {
     return myDate;
   }
 
-
-
   function allDateFormats(date) {
     var dateStr = dateNumberToString(date);
   
@@ -42,8 +40,7 @@ function reversedStr(str) {
   
     return [ddmmyyyy, mmddyyyy, yyyymmdd, ddmmyy, mmddyy, yymmdd];
   }
-  
-  
+   
   function checkPalindromeForAllDate(date) {
     var listOfDateFormats = allDateFormats(date);
   
@@ -57,8 +54,6 @@ function reversedStr(str) {
     }
     return flag;
   }
-
-  
 
   function isLeapYear(year) {
     if (year % 400 === 0) {
@@ -126,20 +121,6 @@ function reversedStr(str) {
     return [counter, nextDate]
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 var dobInput = document.querySelector("#input-dob");
 var btnCheck =  document.querySelector("#button-check");
 
@@ -147,8 +128,25 @@ var outputDiv = document.querySelector("#output");
 
 
 function clickEventHandler()
-{
-    console.log(getNextPalindromeDate(date));
+{  var newDateIp = dateInput.value;
+
+    if (newDateIp !== '') {
+      var dateObject = newDateIp.split('-');
+  
+      var date = {
+        day: Number(dateObject[2]),
+        month: Number(dateObject[1]),
+        year: Number(dateObject[0])
+      }
+      var palindrome = checkPalindromeForAllDate(date)
+      if (palindrome) {
+        outputDiv.innerText = "yes! Your birthday is palindrome!";
+      } else {
+        var [counter, nextDate] = getNextPalindromeDate(date)
+        outputDiv.innerText = `The next palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year}, you missed by ${counter} days.`
+      }
+  
+    }
 }
 
 
